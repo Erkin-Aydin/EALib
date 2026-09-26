@@ -1,6 +1,6 @@
 # EALib
 
-EALib is an attempt of implementing algorithms and data structures purely in C. It is compiled as a static library with strict compiler warnings and high optimizations (`-O3`, `-flto`), and features parallel processing capabilities utilizing OpenMP. Artificial Intelligence is used in the testing process of the daata structures and algorithmns in this liibrary, as well as for making the implementations faster and optimized. This library is created and maintained as a hobby, so do not expect too much from it. 
+EALib is an attempt of implementing algorithms and data structures purely in C. It is compiled as a static library with strict compiler warnings and high optimizations (`-O3`, `-flto`), and features parallel processing capabilities utilizing OpenMP. Artificial Intelligence is used in the testing process of the data structures and algorithmns in this library, as well as for making the implementations faster and optimized. This library is created and maintained as a hobby, so do not expect too much from it. 
 
 ## Prerequisites
 
@@ -41,15 +41,15 @@ EALib uses CMake for its build system. An out-of-source build (e.g., inside a `b
 
 This will generate the `libEAlib.a` static library along with several test and benchmark executables.
 
-## Running Tests and Benchmarks
+## Running Benchmarks
 
-After building, you can run the generated test executables directly from your `build/` directory to verify the library's functionality. For instance, for sorting algorithms:
+After building, you can run the generated benchmark the implementations directly from your `build/` directory to observe performance. For instance, for sorting algorithms:
 
 *   **Sorting Algorithms Test:**
     ```bash
     ./test_sort
     ```
-    
+
 ## Linking EALib to Your Own Projects
 
 To use EALib in your own C or C++ projects, link the generated `libEAlib.a` static library and ensure you include the `inc/` directory in your compiler's include path. If you are utilizing the OpenMP-accelerated functions, remember to link OpenMP (`-fopenmp`) in your project as well.
