@@ -1,5 +1,5 @@
 mtx/
-cache/
+.cache/
 build/
 compile_commands.json
 main.c
