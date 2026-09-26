@@ -1,11 +1,7 @@
 #include "heap.h"
 #include <string.h>
 
-/* ========================================================================= *
- * HEAP IMPLEMENTATION: PRIMITIVES                                           *
- * ========================================================================= */
 
-// U32
 static void heap_u32_sift_up(HeapU32* heap, size_t idx) 
 {
     while (idx > 0) 
@@ -707,11 +703,7 @@ int heap_f64_top(const HeapF64* heap, double* out_item)
     return 1;
 }
 
-/* ========================================================================= *
- * HEAP IMPLEMENTATION: RECORDS                                              *
- * ========================================================================= */
 
-// RECU32
 static void heap_recu32_sift_up(HeapRecU32* heap, size_t idx) 
 {
     while (idx > 0) 

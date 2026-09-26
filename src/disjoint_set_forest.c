@@ -1,8 +1,5 @@
 #include "disjoint_set_forest.h"
 
-/* ========================================================================= *
- * DISJOINT SET IMPLEMENTATION                                               *
- * ========================================================================= */
 
 DisjointSetForest* disjoint_set_forest_init(size_t size) 
 {

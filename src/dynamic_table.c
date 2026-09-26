@@ -25,7 +25,6 @@ void init_RecI32_dt(struct RecI32_dt **table_ptr)
 
 void insert_RecI32_dt(struct RecI32_dt *table, struct RecI32 *rec)
 {
-    /* Expansion policy is needed for sure*/
     if(table->element_cnt == table->arr_size)
     {
         size_t new_size = table->arr_size * 2;
@@ -782,7 +781,7 @@ int binary_search_I32_dt(struct I32_dt *table, int32_t key, size_t *position)
     return 0;
 }
 
-/* --- I64 (int64_t) --- */
+
 void init_I64_dt(struct I64_dt **table_ptr)
 {
     *table_ptr = malloc(sizeof(struct I64_dt));
@@ -881,7 +880,6 @@ int binary_search_I64_dt(struct I64_dt *table, int64_t key, size_t *position)
     return 0;
 }
 
-/* --- U32 (double) --- */
 void init_U32_dt(struct U32_dt **table_ptr)
 {
     *table_ptr = malloc(sizeof(struct U32_dt));
@@ -978,7 +976,6 @@ int binary_search_U32_dt(struct U32_dt *table, uint32_t key, size_t *position)
     return 0;
 }
 
-/* --- U64 (double) --- */
 void init_U64_dt(struct U64_dt **table_ptr) {
     *table_ptr = malloc(sizeof(struct U64_dt));
     if (*table_ptr == NULL) return;
@@ -1073,7 +1070,6 @@ int binary_search_U64_dt(struct U64_dt *table, uint64_t key, size_t *position)
     return 0;
 }
 
-/* --- F32 (double) --- */
 void init_F32_dt(struct F32_dt **table_ptr) {
     *table_ptr = malloc(sizeof(struct F32_dt));
     if (*table_ptr == NULL) return;
@@ -1169,7 +1165,6 @@ int binary_search_F32_dt(struct F32_dt *table, float key, size_t *position)
     return 0;
 }
 
-/* --- F64 (double) --- */
 void init_F64_dt(struct F64_dt **table_ptr) {
     *table_ptr = malloc(sizeof(struct F64_dt));
     if (*table_ptr == NULL) return;

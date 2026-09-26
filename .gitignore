@@ -1,7 +1,6 @@
 mtx/
 cache/
 build/
-test/
 compile_commands.json
 main.c
 run_benchmarks.sh

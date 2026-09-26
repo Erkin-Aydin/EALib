@@ -4,9 +4,6 @@
 #include <string.h>
 #include <math.h>
 
-/* ========================================================================= *
- * UTILITY FUNCTIONS                                                         *
- * ========================================================================= */
 
 static inline int fast_log2(size_t n) 
 {
@@ -19,11 +16,6 @@ static inline int fast_log2(size_t n)
 #endif
 }
 
-/* ========================================================================= *
- * SWAP HELPERS                                                              *
- * ========================================================================= */
-
-// Primitive Swaps
 static void uint32_swap(uint32_t* a, uint32_t* b) 
 { 
     uint32_t tmp = *a; 
@@ -99,11 +91,6 @@ static void recf64_swap(struct RecF64* a, struct RecF64* b)
     *b = tmp; 
 }
 
-/* ========================================================================= *
- * INSERTION SORTS (O(N^2) - Fast Path for Tiny Arrays)                      *
- * ========================================================================= */
-
-// Primitive Insertion Sorts
 void uint32_insertion(uint32_t* arr, size_t n) 
 {
     for (size_t i = 1; i < n; i++) 
@@ -275,11 +262,6 @@ void recf64_insertion(struct RecF64* arr, size_t n)
     }
 }
 
-/* ========================================================================= *
- * HEAP SORTS (O(N log N) - In-Place Safety Fallback)                        *
- * ========================================================================= */
-
-// Primitive Heap Sorts
 void uint32_heap_sort(uint32_t* arr, size_t n) 
 {
     if (n < 2) return;
@@ -559,11 +541,6 @@ void recf64_heap_sort(struct RecF64* arr, size_t n)
     }
 }
 
-/* ========================================================================= *
- * INTROSORTS (O(N log N) - Cache-Friendly QuickSort)                        *
- * ========================================================================= */
-
-// Primitive Introsorts
 void uint32_introsort(uint32_t* arr, int low, int high, int depth_limit) 
 {
     while (high - low > 16) 
@@ -1011,11 +988,7 @@ void recf64_introsort(struct RecF64* arr, int low, int high, int depth_limit)
     recf64_insertion(arr + low, high - low + 1);
 }
 
-/* ========================================================================= *
- * INTROSORT FALLBACK TRIGGERS (Main entry points for O(N log N))            *
- * ========================================================================= */
 
-// Primitive Fallbacks
 void uint32_sort_fallback(uint32_t* arr, size_t n) 
 {
     if (n < 2) return;
@@ -1151,10 +1124,6 @@ void recf64_sort_fallback(struct RecF64* arr, size_t n)
     recf64_introsort(arr, 0, (int)n - 1, depth_limit);
 }
 
-/* ========================================================================= *
- * RADIX MAPPING UTILITIES                                                   *
- * ========================================================================= */
-
 static inline uint32_t map_u32(uint32_t k) { return k; }
 static inline uint64_t map_u64(uint64_t k) { return k; }
 static inline uint32_t map_i32(int32_t k) { return (uint32_t)k ^ 0x80000000; }
@@ -1174,11 +1143,7 @@ static inline uint64_t map_f64(double k)
     return u ^ ((-(u >> 63)) | 0x8000000000000000ULL); 
 }
 
-/* ========================================================================= *
- * EXPLICITLY TYPED UNIVERSAL SORTS (Radix O(N) - Main Entry Points)         *
- * ========================================================================= */
 
-// Primitive Universal Sorts
 void universal_sort_uint32(uint32_t* arr, size_t n) 
 {
     if (n < 1024) 
